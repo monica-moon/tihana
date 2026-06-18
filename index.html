@@ -22,6 +22,20 @@
     --shadow:0 18px 50px -22px rgba(124,43,83,.35);
   }
   *{box-sizing:border-box;margin:0;padding:0}
+
+  /* CONCEPT WATERMARK — tiled diagonal text across the whole site */
+  .wm{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    pointer-events:none;          /* never blocks clicks/scroll */
+    background-repeat:repeat;
+    background-size:460px 460px;
+    opacity:.05;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='340' height='340'><text x='0' y='180' transform='rotate(-30 170 170)' font-family='Arial, sans-serif' font-size='30' font-weight='700' fill='%237c2b53'>CONCEPT · PREVIEW ONLY</text></svg>");
+  }
+  @media print{.wm{opacity:.28}}
+
   html{scroll-behavior:smooth}
   html,body{overflow-x:hidden;max-width:100%}
   img,svg{max-width:100%}
@@ -189,6 +203,9 @@
 </style>
 </head>
 <body>
+
+<!-- CONCEPT WATERMARK -->
+<div class="wm" aria-hidden="true"></div>
 
 <header>
   <nav class="wrap">
