@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tihana Academy, Creative & Educational Programs for Kids</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&family=Baloo+2:wght@600;700;800&family=Luckiest+Guy&family=Lilita+One&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pink-deep:#d6457f;
+    --pink:#f17cab;
+    --pink-soft:#fbe1ec;
+    --pink-bg:#fdeff5;
+    --cream:#fbf6f0;
+    --plum:#7c2b53;
+    --ink:#4a3340;
+    --muted:#9b8290;
+    --gold:#e6a23c;
+    --line:#f3d9e5;
+    --shadow:0 18px 50px -22px rgba(124,43,83,.35);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  html,body{overflow-x:hidden;max-width:100%}
+  img,svg{max-width:100%}
+  .hero-grid>div,.foot-grid>div{min-width:0}
+  .hero h1{overflow-wrap:break-word}
+  body{
+    font-family:'Quicksand',sans-serif;
+    color:var(--ink);
+    background:#fff;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:600;letter-spacing:.02em}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+  .serif-caps{font-family:'Cormorant Garamond',serif;letter-spacing:.35em;text-transform:uppercase}
+
+  /* NAV */
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--plum)}
+  .ring{width:44px;height:44px;border-radius:50%;padding:2.5px;background:conic-gradient(from 0deg,#ff5f6d,#ffc371,#f9f586,#7afcff,#a18cd1,#ff5f6d);display:grid;place-items:center;flex:0 0 auto}
+  .ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:50% 42%;display:block;transform:scale(1.35)}
+  .brand b{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:700;letter-spacing:.18em}
+  .brand small{display:block;font-size:.6rem;letter-spacing:.45em;text-transform:uppercase;color:var(--muted);margin-top:-4px}
+  .navlinks{display:flex;gap:30px}
+  .navlinks a{text-decoration:none;color:var(--ink);font-weight:600;font-size:.92rem;transition:color .2s}
+  .navlinks a:hover{color:var(--pink-deep)}
+  .btn{display:inline-block;background:var(--pink-deep);color:#fff;text-decoration:none;font-weight:700;padding:11px 24px;border-radius:999px;font-size:.9rem;box-shadow:0 10px 24px -10px var(--pink-deep);transition:transform .2s}
+  .btn:hover{transform:translateY(-2px)}
+  .menu-toggle{display:none}
+
+  /* HERO */
+  .hero{position:relative;overflow:hidden;background:#fff;padding:0}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center;padding:44px 0 28px}
+  .eyebrow{color:var(--pink-deep);font-weight:700;letter-spacing:.3em;text-transform:uppercase;font-size:.72rem;margin-bottom:18px}
+  .hero h1{font-size:clamp(2.4rem,6vw,4.1rem);line-height:1.04;color:var(--plum);margin-bottom:20px}
+  .hero h1 em{font-style:italic;color:var(--pink-deep)}
+  .hero p{font-size:1.08rem;color:var(--muted);max-width:480px;margin-bottom:30px}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .btn-ghost{display:inline-block;text-decoration:none;color:var(--plum);font-weight:700;padding:11px 22px;border-radius:999px;border:1.5px solid var(--line);transition:border-color .2s}
+  .btn-ghost:hover{border-color:var(--pink)}
+  .hero-stats{display:flex;gap:34px;margin-top:42px}
+  .hero-stats div b{font-family:'Cormorant Garamond',serif;font-size:1.9rem;color:var(--plum);display:block;line-height:1}
+  .hero-stats div span{font-size:.78rem;color:var(--muted);letter-spacing:.04em}
+
+  .hero-art{position:relative;display:grid;place-items:center;min-height:440px}
+  .glow{position:absolute;width:430px;height:430px;border-radius:50%;background:conic-gradient(from 0deg,#ff5f6d,#ffc371,#f9f586,#7afcff,#a18cd1,#ff5f6d);filter:blur(46px);opacity:.55}
+  .logo-medallion{position:relative;width:min(400px,82%);aspect-ratio:1;border-radius:50%;padding:9px;background:conic-gradient(from 0deg,#ff5f6d,#ffc371,#f9f586,#7afcff,#a18cd1,#ff5f6d);box-shadow:0 30px 70px -28px rgba(124,43,83,.55)}
+  .logo-medallion img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:50% 43%;transform:scale(1.08);display:block;background:#cdb79e}
+  .float{position:absolute;font-size:2rem;animation:bob 4s ease-in-out infinite}
+  .float.a{top:8%;left:6%}.float.b{top:14%;right:4%;animation-delay:.6s}
+  .float.c{bottom:10%;left:2%;animation-delay:1.2s}.float.d{bottom:6%;right:8%;animation-delay:1.8s}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+
+  /* SUMMER BANNER */
+  .summer{background:#fff;position:relative;overflow:hidden}
+  .summer .wrap{padding:6px 24px;text-align:center}
+  .sun{width:clamp(54px,9vw,72px);height:clamp(54px,9vw,72px);display:block;margin:0 auto 12px;overflow:visible}
+  .sun .rays{transform-origin:50px 50px;animation:sunspin 16s linear infinite;stroke:var(--gold);stroke-width:4.5;stroke-linecap:round}
+  .sun .core{fill:#f1b43f;transform-origin:50px 50px;transform-box:fill-box;animation:sunpulse 3s ease-in-out infinite}
+  @keyframes sunspin{to{transform:rotate(360deg)}}
+  @keyframes sunpulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+  @media(prefers-reduced-motion:reduce){.sun .rays,.sun .core,.cook-anim{animation:none}}
+  .summer-head{margin-bottom:18px}
+  .summer-head .pill{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid #efe2d2;border-radius:999px;padding:9px 22px;font-weight:700;color:var(--plum);font-size:.86rem;box-shadow:0 14px 30px -18px rgba(124,43,83,.25)}
+  .summer-title{font-family:'Lilita One',cursive;font-weight:400;color:var(--plum);font-size:clamp(2.7rem,9vw,5.4rem);line-height:.9;letter-spacing:.04em;margin:2px 0 12px}
+  .summer-title span{display:block;font-size:clamp(1.8rem,6.2vw,3.4rem);letter-spacing:.06em}
+  .summer-sub{color:#9a8a72;font-weight:600;font-size:clamp(.95rem,2.5vw,1.05rem)}
+
+  /* PROGRAM SECTIONS */
+  section{padding:38px 0}
+  .sec-head{text-align:center;max-width:640px;margin:0 auto 28px}
+  .sec-head .kicker{color:var(--pink-deep);font-weight:700;letter-spacing:.28em;text-transform:uppercase;font-size:.72rem}
+  .sec-head h2{font-size:clamp(2rem,5vw,2.8rem);color:var(--plum);margin:8px 0 12px}
+  .sec-head p{color:var(--muted)}
+
+  .prog-shot{display:block;width:100%;height:auto;margin:0 auto 8px}
+  .prog-shot.leisure{max-width:600px}
+  .prog-shot.master{max-width:770px}
+  .sched-shot{margin:0 auto;max-width:780px}
+  .program{margin-bottom:30px;background:#fff;border:1px solid var(--line);border-radius:26px;padding:30px 30px 34px;box-shadow:var(--shadow)}
+  .program h3{text-align:center;color:var(--pink-deep);font-size:1.9rem;letter-spacing:.05em;text-transform:uppercase;font-weight:700;margin-bottom:24px}
+  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:14px}
+  .tile{background:var(--pink-bg);border-radius:18px;padding:18px 10px;text-align:center;transition:transform .18s,background .18s;cursor:default}
+  .tile:hover{transform:translateY(-5px);background:var(--pink-soft)}
+  .tile .ic{width:36px;height:36px;display:block;margin:0 auto 10px;color:var(--pink-deep);stroke-width:1.6}
+  .tile:hover .ic{color:var(--pink-deep)}
+  .tile b{display:block;font-size:.74rem;letter-spacing:.05em;text-transform:uppercase;color:var(--plum);font-weight:700}
+  #programs{background:#fff;padding-bottom:36px}
+  .program.cook{background:none;border:none;box-shadow:none;padding:14px 0 0;margin-bottom:0;text-align:center}
+  .program.cook h3{color:var(--gold);margin-bottom:8px}
+  .program.cook p{color:var(--muted);max-width:560px;margin:0 auto}
+  .cook-anim{font-size:3rem;margin-top:10px;display:inline-block;transform-origin:bottom center;animation:panflip 1.7s ease-in-out infinite;filter:drop-shadow(0 12px 8px rgba(124,43,83,.16))}
+  @keyframes panflip{0%,100%{transform:translateY(0) rotate(0)}28%{transform:translateY(-20px) rotate(-22deg)}50%{transform:translateY(-26px) rotate(0)}72%{transform:translateY(-20px) rotate(18deg)}}
+
+  /* SCHEDULE */
+  .schedule{background:#fff}
+  .sched-list{max-width:680px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+  .day{display:grid;grid-template-columns:130px 1fr;gap:18px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px 24px;box-shadow:0 12px 30px -24px rgba(124,43,83,.5)}
+  .day .dname{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--plum);font-style:italic}
+  .day .classes{display:flex;flex-direction:column;gap:6px}
+  .cls{display:flex;align-items:center;gap:12px}
+  .cls .emoji{font-size:1.3rem}
+  .cls b{color:var(--ink);font-weight:700;font-size:.98rem}
+  .cls span{color:var(--pink-deep);font-weight:600;font-size:.85rem;margin-left:auto;white-space:nowrap}
+
+  /* ENROLL */
+  .enroll{background:#fff;text-align:center}
+  .enroll h2{color:var(--plum);font-family:'Quicksand',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.06em;line-height:1.18;font-size:clamp(1.5rem,4.2vw,2.3rem)}
+  .enroll p{color:#9a8a72;max-width:520px;margin:14px auto 28px;font-weight:500}
+
+  /* FOOTER */
+  footer{background:#2a1b24;color:#e9d9e2;padding:60px 0 34px}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:40px}
+  footer .brand b{color:#fff}
+  footer .brand small{color:#b89aa8}
+  footer p{color:#b89aa8;font-size:.9rem;margin-top:14px;max-width:300px}
+  footer h4{font-family:'Quicksand';font-weight:700;color:#fff;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:16px}
+  footer ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+  footer a{color:#c9b2bf;text-decoration:none;font-size:.9rem}
+  footer a:hover{color:#fff}
+  .copy{border-top:1px solid #3e2b35;padding-top:22px;text-align:center;color:#8f7682;font-size:.8rem}
+
+  /* Tablet / iPad */
+  @media(max-width:1024px){
+    .hero-grid{gap:36px}
+    .navlinks{gap:22px}
+    .foot-grid{grid-template-columns:1.3fr 1fr 1fr;gap:30px}
+  }
+  /* Stacked (small tablet / large phone) */
+  @media(max-width:860px){
+    .navlinks,.hero-stats{display:none}
+    .hero-grid{grid-template-columns:minmax(0,1fr);padding:40px 0 44px;gap:24px;text-align:center}
+    .hero p{margin-left:auto;margin-right:auto}
+    .hero-cta{justify-content:center}
+    .hero-art{display:flex;justify-content:center;order:-1;margin:0 0 4px;min-height:0}
+    .glow{display:none}
+    .logo-medallion{width:200px;aspect-ratio:auto;padding:0;background:none;border-radius:0;box-shadow:none}
+    .logo-medallion img{width:100%;height:auto;object-fit:contain;transform:none;border-radius:0;background:none}
+    section{padding:50px 0}
+    .foot-grid{grid-template-columns:1fr 1fr;gap:26px 16px;text-align:center}
+    .foot-grid>div:first-child{grid-column:1 / -1}
+    footer{padding:44px 0 28px}
+    footer .brand{justify-content:center}
+    footer p{margin-left:auto;margin-right:auto;text-align:center}
+    footer h4{margin-bottom:12px}
+  }
+  /* Phone */
+  @media(max-width:560px){
+    .wrap{padding:0 18px}
+    nav{height:64px}
+    .brand b{font-size:1.1rem}
+    .eyebrow{letter-spacing:.16em;font-size:.62rem}
+    .hero h1{font-size:1.95rem}
+    .hero p{font-size:1rem}
+    .hero-cta{flex-direction:column}
+    .hero-cta .btn,.hero-cta .btn-ghost{width:100%;text-align:center}
+    section{padding:42px 0}
+    .logo-medallion{width:200px}
+    .program.cook h3{font-size:1.35rem}
+    footer p{max-width:300px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a class="brand" href="#top">
+      <span class="ring"><img src="logo.jpg" alt="Tihana Academy"></span>
+      <span><b>TIHANA</b><small>Academy</small></span>
+    </a>
+    <div class="navlinks">
+      <a href="#programs">Programs</a>
+      <a href="#summer">Summer School</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#enroll">Enroll</a>
+    </div>
+    <a class="btn" href="#enroll">Join Us</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Creative · Educational · Joyful</div>
+      <h1>Where children <em>create</em>, learn &amp; grow.</h1>
+      <p>Tihana Academy offers art, science, and life-skill programs designed to spark curiosity, from pottery and digital art to chess, robotics, and cooking together.</p>
+      <div class="hero-cta">
+        <a class="btn" href="#enroll">Enroll Your Child</a>
+        <a class="btn-ghost" href="#programs">Explore Programs</a>
+      </div>
+      <div class="hero-stats">
+        <div><b>25+</b><span>Programs &amp; classes</span></div>
+        <div><b>5</b><span>Days a week</span></div>
+        <div><b>3–14</b><span>Ages welcome</span></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="glow"></div>
+      <div class="logo-medallion"><picture>
+        <source media="(max-width:860px)" srcset="logo_art.png?v=6">
+        <img src="logo.jpg" alt="Tihana Academy logo, a child's face with a burst of art supplies, books and a brain as flowing hair">
+      </picture></div>
+    </div>
+  </div>
+</section>
+
+<!-- SUMMER -->
+<section class="summer" id="summer">
+  <div class="wrap">
+    <svg class="sun" viewBox="0 0 100 100" aria-hidden="true">
+      <g class="rays">
+        <line x1="74.0" y1="50.0" x2="84.0" y2="50.0"/>
+        <line x1="70.8" y1="62.0" x2="79.4" y2="67.0"/>
+        <line x1="62.0" y1="70.8" x2="67.0" y2="79.4"/>
+        <line x1="50.0" y1="74.0" x2="50.0" y2="84.0"/>
+        <line x1="38.0" y1="70.8" x2="33.0" y2="79.4"/>
+        <line x1="29.2" y1="62.0" x2="20.6" y2="67.0"/>
+        <line x1="26.0" y1="50.0" x2="16.0" y2="50.0"/>
+        <line x1="29.2" y1="38.0" x2="20.6" y2="33.0"/>
+        <line x1="38.0" y1="29.2" x2="33.0" y2="20.6"/>
+        <line x1="50.0" y1="26.0" x2="50.0" y2="16.0"/>
+        <line x1="62.0" y1="29.2" x2="67.0" y2="20.6"/>
+        <line x1="70.8" y1="38.0" x2="79.4" y2="33.0"/>
+      </g>
+      <circle class="core" cx="50" cy="50" r="17"/>
+    </svg>
+    <div class="summer-head"><span class="pill">⏰ 5 Days a Week · 9:00 AM – 5:00 PM</span></div>
+    <h2 class="summer-title">SUMMER<span>SCHOOL</span></h2>
+    <p class="summer-sub">A full day of creativity, learning, and play, all summer long.</p>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section id="programs">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">What We Offer</div>
+      <h2>Our Programs</h2>
+      <p>Hands-on classes grouped into four pathways, plus a kitchen of our own where kids cook real treats.</p>
+    </div>
+
+    <img class="prog-shot" src="ccrc2.png?v=4" alt="CCRC Program, Painting, Sand Art, Pottery, Digital Art, Chess, Robotics, Beadwork">
+    <img class="prog-shot" src="educ%202.png?v=4" alt="Educational Program, English, Mathematics, Armenian, Book Selection, Brain Training, Speed Reading, Mental Arithmetic, Memory Development">
+    <img class="prog-shot leisure" src="act2.png?v=4" alt="Active Leisure, Aerobics, Quest Games, Movie Time, Dance">
+    <img class="prog-shot master" src="master2.png?v=4" alt="Master Classes, Dance, Clay, Cook, Painting, Nutrition">
+
+    <div class="program cook">
+      <h3>We Cook in Our Own Kitchen</h3>
+      <p>Hands-on cooking is part of the fun, our students roll up their sleeves and make real treats together in our kitchen.</p>
+      <div class="cook-anim" aria-hidden="true">🍳</div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section class="schedule" id="schedule">
+  <div class="wrap">
+    <img class="prog-shot sched-shot" src="week%20sched.png?v=3" alt="Weekly Schedule, Monday Digital Art, Tuesday & Wednesday Pottery, Thursday Puppetry, Friday Art Class, Saturday Puppetry, Pottery and Chess">
+  </div>
+</section>
+
+<!-- ENROLL -->
+<section class="enroll" id="enroll">
+  <div class="wrap">
+    <h2>Give your child a summer to remember</h2>
+    <p>Spots fill quickly. Reserve a place in our summer program or join a weekly class today.</p>
+    <a class="btn" href="#">Enroll Now</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="#top">
+          <span class="ring"><img src="logo.jpg" alt="Tihana Academy"></span>
+          <span><b>TIHANA</b><small>Academy</small></span>
+        </a>
+        <p>A creative and educational academy where children explore art, science, and life skills, and have fun doing it.</p>
+      </div>
+      <div>
+        <h4>Programs</h4>
+        <ul>
+          <li><a href="#programs">CCRC Program</a></li>
+          <li><a href="#programs">Educational</a></li>
+          <li><a href="#programs">Active Leisure</a></li>
+          <li><a href="#schedule">Weekly Schedule</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Visit Us</h4>
+        <ul>
+          <li><a href="#">📍 Find our location</a></li>
+          <li><a href="#">📞 Call to enroll</a></li>
+          <li><a href="#">✉️ info@tihana.academy</a></li>
+          <li><a href="#">📷 Follow on Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">© 2026 Tihana Academy · Made with 💗 for curious kids</div>
+  </div>
+</footer>
+
+</body>
+</html>
